@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroRescue-AI | Mission AERO-7-BRB-20261014 | Sector 7 Command</title>
+  <meta name="description" content="AeroRescue-AI Advanced Multimodal Geospatial Intelligence Agent — Sector 7 Brahmagiri River Basin flood disaster tactical command center." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="hdr-left">
+      <div class="logo-wrap">
+        <div class="logo-sat">🛰️</div>
+        <div>
+          <div class="logo-title">AeroRescue<span class="logo-ai">-AI</span></div>
+          <div class="logo-sub">Multimodal Geospatial Intelligence Agent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hdr-center">
+      <div class="mission-chip">
+        <span class="chip-lbl">MISSION ID</span>
+        <span class="chip-val" id="mission-id-display">AERO-7-BRB-20261014</span>
+      </div>
+      <div class="chip-divider"></div>
+      <div class="mission-chip">
+        <span class="chip-lbl">SECTOR</span>
+        <span class="chip-val">SECTOR 7 — BRAHMAGIRI BASIN</span>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>OPERATIONAL</span>
+      </div>
+    </div>
+
+    <div class="hdr-right">
+      <div class="clock-block">
+        <div class="clock-lbl">MISSION TIME UTC</div>
+        <div class="clock-val" id="live-clock">--:--:--</div>
+      </div>
+      <div class="clock-block">
+        <div class="clock-lbl">RESCUE WINDOW</div>
+        <div class="clock-val deadline" id="rescue-deadline">--:--:--</div>
+      </div>
+      <div class="clock-block">
+        <div class="clock-lbl">CONFIDENCE</div>
+        <div class="clock-val ok">HIGH</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ALERT TICKER -->
+  <div class="alert-ticker">
+    <span class="ticker-icon">⚠</span>
+    <div class="ticker-track">
+      <div class="ticker-inner" id="ticker-inner">
+        ⚡ CRITICAL — 14 ACTIVE SOS SIGNALS · Riverbend Elementary School Roof · 45.4200°N / 71.3100°W · Immediate helicopter extraction required &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        🌊 FLOOD DEPTH: 4.0ft — Route 9 Highway submerged — Terrestrial access BLOCKED &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        🌉 SR-001 Sector 7 Primary Bridge — STRUCTURAL COLLAPSE — North corridor SEVERED &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        ⏱ OPERATIONAL DEADLINE: 6–8 hours before conditions degrade &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        🚁 IFR Helicopter AUTHORIZED — Deploy to PRC-001 immediately &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        🛥 Airboat AUTHORIZED — Eastern ingress via Route 9 corridor at 45.4000°N / 71.1000°W
+      </div>
+    </div>
+    <span class="ticker-icon">⚠</span>
+  </div>
+
+  <!-- MAIN GRID -->
+  <main id="app-grid">
+
+    <!-- LEFT PANEL -->
+    <aside id="left-panel">
+
+      <section class="card" id="sos-card">
+        <div class="card-hdr">
+          <span class="card-icon">📡</span>
+          <span class="card-title">ACTIVE SOS BEACONS</span>
+          <span class="badge red">1 ACTIVE</span>
+        </div>
+        <div class="sos-block">
+          <div class="sos-rings">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+            <div class="sos-core">SOS</div>
+          </div>
+          <div class="sos-detail">
+            <div class="sos-name">Riverbend Elementary School</div>
+            <div class="sos-coords">45.4200°N / 71.3100°W</div>
+            <div class="sos-count"><span id="sos-num">14</span> distress signals</div>
+            <div class="sos-src">Mobile SOS Beacon · ACTIVE</div>
+          </div>
+          <div class="sos-p1">P1</div>
+        </div>
+      </section>
+
+      <section class="card" id="weather-card">
+        <div class="card-hdr">
+          <span class="card-icon">🌧️</span>
+          <span class="card-title">METEOROLOGICAL</span>
+          <span class="badge amber">MARGINAL</span>
+        </div>
+        <div class="wx-grid">
+          <div class="wx-cell">
+            <div class="wx-lbl">VISIBILITY</div>
+            <div class="wx-val">2 mi</div>
+            <div class="wx-sub">Light fog</div>
+          </div>
+          <div class="wx-cell">
+            <div class="wx-lbl">WIND</div>
+            <div class="wx-val">15 kt</div>
+            <div class="wx-sub">NW</div>
+          </div>
+          <div class="wx-cell">
+            <div class="wx-lbl">PRECIP</div>
+            <div class="wx-val warn">Heavy</div>
+            <div class="wx-sub">Active</div>
+          </div>
+          <div class="wx-cell">
+            <div class="wx-lbl">FORECAST</div>
+            <div class="wx-val warn">+12 h</div>
+            <div class="wx-sub">Sustained</div>
+          </div>
+        </div>
+        <div class="wx-alert">⏱ Operational window: <strong>6–8 hours</strong> before degradation</div>
+      </section>
+
+      <section class="card" id="asset-status-card">
+        <div class="card-hdr">
+          <span class="card-icon">🚁</span>
+          <span class="card-title">ASSET VIABILITY</span>
+        </div>
+        <div class="asset-rows">
+          <div class="asset-row">
+            <span class="asset-emoji">🚗</span>
+            <div class="asset-info">
+              <div class="asset-nm">Ground Vehicle</div>
+              <div class="viability-bar"><div class="viability-fill" style="width:0%"></div></div>
+            </div>
+            <span class="asset-tag red">STAND DOWN</span>
+          </div>
+          <div class="asset-row">
+            <span class="asset-emoji">🛥️</span>
+            <div class="asset-info">
+              <div class="asset-nm">Airboat / Rescue Vessel</div>
+              <div class="viability-bar"><div class="viability-fill amber" style="width:65%"></div></div>
+            </div>
+            <span class="asset-tag green">AUTH</span>
+          </div>
+          <div class="asset-row">
+            <span class="asset-emoji">🚁</span>
+            <div class="asset-info">
+              <div class="asset-nm">IFR Helicopter</div>
+              <div class="viability-bar"><div class="viability-fill green" style="width:82%"></div></div>
+            </div>
+            <span class="asset-tag green">AUTH</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="pop-card">
+        <div class="card-hdr">
+          <span class="card-icon">👥</span>
+          <span class="card-title">ISOLATED POPULATION</span>
+          <span class="badge red">IC-001</span>
+        </div>
+        <div class="pop-row">
+          <div class="pop-cell">
+            <div class="pop-num">250</div>
+            <div class="pop-lbl">Households</div>
+          </div>
+          <div class="pop-cell">
+            <div class="pop-num cyan">~875</div>
+            <div class="pop-lbl">Est. Persons</div>
+          </div>
+          <div class="pop-cell">
+            <div class="pop-num red">14</div>
+            <div class="pop-lbl">SOS Signals</div>
+          </div>
+        </div>
+        <div class="encirclement-badge">🔒 360° ENCIRCLEMENT CONFIRMED</div>
+      </section>
+
+    </aside>
+
+    <!-- CENTER MAP -->
+    <section id="map-col">
+
+      <div class="map-topbar">
+        <div class="map-title-block">
+          <h1 class="map-title">Sector 7 — Flood Zone &amp; Dynamic Routing</h1>
+          <p class="map-sub">Brahmagiri River Basin disaster response and asset viability model</p>
+        </div>
+        <div class="map-stats">
+          <div class="map-stat">
+            <div class="ms-lbl">ACTIVE ASSET</div>
+            <div class="ms-val" id="active-asset-lbl">Ground Vehicle</div>
+          </div>
+          <div class="map-stat-sep"></div>
+          <div class="map-stat">
+            <div class="ms-lbl">ROUTE STATUS</div>
+            <div class="ms-val warn" id="route-status-lbl">Single Path</div>
+          </div>
+          <div class="map-stat-sep"></div>
+          <div class="map-stat">
+            <div class="ms-lbl">FLOOD DEPTH</div>
+            <div class="ms-val" id="flood-depth-lbl">4.0 ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-container" id="canvas-container">
+        <canvas id="map-canvas"></canvas>
+        <div class="scanline-overlay"></div>
+      </div>
+
+      <div class="map-footer">
+        <div class="legend">
+          <div class="leg-item"><div class="leg-line safe"></div><span>Safe</span></div>
+          <div class="leg-item"><div class="leg-line marginal"></div><span>Marginal</span></div>
+          <div class="leg-item"><div class="leg-line impassable"></div><span>Impassable</span></div>
+          <div class="leg-item"><div class="leg-dot sos-dot"></div><span>SOS Beacon</span></div>
+          <div class="leg-item"><div class="leg-dot lz-dot"></div><span>Staging LZ</span></div>
+          <div class="leg-item"><div class="leg-dot flood-dot"></div><span>Flood Zone</span></div>
+        </div>
+        <div class="confidence-chip">▲ SAR + GeoJSON Corroborated</div>
+      </div>
+
+      <div class="map-controls-bar">
+        <div class="ctrl-group">
+          <label class="ctrl-lbl">Rescue Asset Type</label>
+          <div class="asset-btns">
+            <button class="asset-btn active" id="btn-ground" onclick="setAsset('ground')">Ground Vehicle</button>
+            <button class="asset-btn" id="btn-boat"   onclick="setAsset('boat')">Shallow Boat</button>
+            <button class="asset-btn" id="btn-heli"   onclick="setAsset('helicopter')">Helicopter</button>
+          </div>
+        </div>
+        <div class="ctrl-group">
+          <label class="ctrl-lbl">Water Level Simulator (0–10 ft)</label>
+          <div class="slider-row">
+            <input type="range" id="water-slider" min="0" max="10" step="0.5" value="4"
+                   oninput="setWaterLevel(this.value)" />
+            <span class="slider-val" id="slider-val-display">4.0 ft</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <aside id="right-panel">
+
+      <section class="card" id="pipeline-card">
+        <div class="card-hdr">
+          <span class="card-icon">⚙️</span>
+          <span class="card-title">PIPELINE STATUS</span>
+          <span class="badge green">COMPLETE</span>
+        </div>
+        <div class="pipeline-steps">
+          <div class="pipe-step done">
+            <div class="pipe-num">01</div>
+            <div class="pipe-body">
+              <div class="pipe-name">Infrastructure Delta</div>
+              <div class="pipe-result">2 severed routes confirmed</div>
+            </div>
+            <div class="pipe-tick">✓</div>
+          </div>
+          <div class="pipe-step done">
+            <div class="pipe-num">02</div>
+            <div class="pipe-body">
+              <div class="pipe-name">Isolation Mapping</div>
+              <div class="pipe-result">IC-001 — 360° encirclement</div>
+            </div>
+            <div class="pipe-tick">✓</div>
+          </div>
+          <div class="pipe-step done">
+            <div class="pipe-num">03</div>
+            <div class="pipe-body">
+              <div class="pipe-name">Routing &amp; Triage</div>
+              <div class="pipe-result">Air + water assets authorized</div>
+            </div>
+            <div class="pipe-tick">✓</div>
+          </div>
+          <div class="pipe-step done">
+            <div class="pipe-num">04</div>
+            <div class="pipe-body">
+              <div class="pipe-name">JSON-EMIT</div>
+              <div class="pipe-result">Tactical payload generated</div>
+            </div>
+            <div class="pipe-tick">✓</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="routes-card">
+        <div class="card-hdr">
+          <span class="card-icon">🔴</span>
+          <span class="card-title">SEVERED ROUTES</span>
+          <span class="badge red">2 BLOCKED</span>
+        </div>
+        <div class="route-card crit">
+          <div class="rc-id">SR-001</div>
+          <div class="rc-name">Sector 7 Primary Bridge</div>
+          <div class="rc-coord">45.3000°N / 71.2000°W</div>
+          <div class="rc-status red-text">STRUCTURAL COLLAPSE — COMPLETE</div>
+          <div class="rc-tag">⬆️ NORTH blocked · Pillars only remain</div>
+        </div>
+        <div class="route-card warn-card">
+          <div class="rc-id">SR-002</div>
+          <div class="rc-name">Route 9 Highway</div>
+          <div class="rc-coord">45.4000–45.4300°N / 71.1000°W</div>
+          <div class="rc-status amber-text">SUBMERSION 4ft — TERRESTRIAL BLOCKED</div>
+          <div class="rc-tag">➡️ EAST blocked · Boat viable</div>
+        </div>
+      </section>
+
+      <section class="card" id="deploy-card">
+        <div class="card-hdr">
+          <span class="card-icon">📋</span>
+          <span class="card-title">DEPLOYMENT ORDERS</span>
+        </div>
+        <div class="deploy-list">
+          <div class="deploy-item p1">
+            <div class="deploy-rank red-text">P1</div>
+            <div class="deploy-body">
+              <div class="deploy-action">Helicopter Hoist Extraction</div>
+              <div class="deploy-loc">Riverbend Elementary School Roof</div>
+              <div class="deploy-coord">45.4200°N / 71.3100°W</div>
+              <div class="deploy-urg blink-red">● IMMEDIATE — EXECUTE NOW</div>
+            </div>
+          </div>
+          <div class="deploy-item p2">
+            <div class="deploy-rank amber-text">P2</div>
+            <div class="deploy-body">
+              <div class="deploy-action">Airboat Residential Sweep</div>
+              <div class="deploy-loc">Route 9 Eastern Ingress → Riverbend Grid</div>
+              <div class="deploy-coord">Entry: 45.4000°N / 71.1000°W</div>
+              <div class="deploy-urg amber-text">● HIGH — ESCALATING</div>
+            </div>
+          </div>
+          <div class="deploy-item p3">
+            <div class="deploy-rank green-text">LZ</div>
+            <div class="deploy-body">
+              <div class="deploy-action">Activate Forward Operating Base</div>
+              <div class="deploy-loc">Community Center Parking Lot</div>
+              <div class="deploy-coord">45.4500°N / 71.0500°W</div>
+              <div class="deploy-urg green-text">● Fuel · Medevac · Command</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+  </main>
+
+  <!-- JSON PAYLOAD VIEWER -->
+  <section id="json-section">
+    <div class="json-header" id="json-header" onclick="toggleJSON()">
+      <div class="json-title-row">
+        <span>📡</span>
+        <span class="json-mono">JSON-EMIT TACTICAL PAYLOAD — AERO-7-BRB-20261014</span>
+        <span class="badge green">GENERATED</span>
+        <span class="badge amber">CONFIDENCE: HIGH</span>
+      </div>
+      <button class="json-expand-btn" id="json-expand-btn">▼ EXPAND</button>
+    </div>
+    <div class="json-body-wrap" id="json-body-wrap">
+      <pre id="json-output"></pre>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
